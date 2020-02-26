@@ -10,6 +10,6 @@ export class LibraryChanged {
   ) {}
 
   public entityID(): UUID {
-    return /* the associated entity ID */
+    return this.libraryId;
   }
 }
