@@ -1,8 +1,9 @@
 import { Command } from '@boostercloud/framework-core'
 import { Register, UUID } from '@boostercloud/framework-types'
+import { LibraryChanged } from '../events/LibraryChanged'
 
 @Command({
-  authorize: // Specify authorized roles here. Use 'all' to authorize anyone 
+  authorize: 'all'
 })
 export class ChangeLibrary {
   public constructor(
@@ -12,6 +13,6 @@ export class ChangeLibrary {
   ) {}
 
   public handle(register: Register): void {
-    register.events( /* YOUR EVENT HERE */)
+    register.events( new LibraryChanged(this.libraryId, this.bookName, this.bookRead))
   }
 }
