@@ -1,9 +1,10 @@
 import { Command } from '@boostercloud/framework-core'
 import { Register, UUID } from '@boostercloud/framework-types'
 import { BookAdded } from '../events/BookAdded'
+import { User } from '../roles';
 
 @Command({
-  authorize: 'all'
+  authorize: [User]
 })
 export class AddBook {
   public constructor(
